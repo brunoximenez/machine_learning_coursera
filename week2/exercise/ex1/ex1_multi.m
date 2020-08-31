@@ -52,7 +52,7 @@ fprintf('Normalizing Features ...\n');
 [X mu sigma] = featureNormalize(X);
 
 % Add intercept term to X
-X = [ones(m, 1) X];
+X = [ones(m, 1) X]
 
 
 %% ================ Part 2: Gradient Descent ================
@@ -82,7 +82,7 @@ X = [ones(m, 1) X];
 fprintf('Running gradient descent ...\n');
 
 % Choose some alpha value
-alpha = 0.01;
+alpha = 1.;
 num_iters = 400;
 
 % Init Theta and Run Gradient Descent 

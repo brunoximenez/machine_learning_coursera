@@ -17,8 +17,13 @@ figure; % open a new figure window
 %       markers larger by using plot(..., 'rx', 'MarkerSize', 10);
 
 
+plot(x, y, 'o',...
+    'MarkerSize', 8, ...
+    'MarkerEdgeColor', 'b', ...
+    'MarkerFaceColor', [0, 0.5, 0.5]);
 
-
+xlabel('Population (x 10,000)')
+ylabel('Profit (x 10,000 $)')
 
 % ============================================================
 
