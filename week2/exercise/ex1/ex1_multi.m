@@ -100,11 +100,45 @@ fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
+
+% Calculates fitted values
+fit = X*theta;
+
+% Initializes vectors
+price_flat = [];
+price_fit = [];
+size_data = size(X, 1);
+
+% Analyse flats with that number of bedrooms
+br_select = 3
+for i = 1:size(X, 1)
+    br = (X(i, 3) * sigma(2) ) + mu(2);
+    price_data = (X(i, 2) * sigma(1) ) + mu(1);
+    if br == br_select
+        price_flat = [price_flat ; price_data  y(i)];
+        price_fit = [price_fit ; fit(i)];
+    endif
+endfor
+
+fprintf('Plotting price fit for %f br... \n', br_select);
+plot(price_flat(:, 1), price_flat(:,2), 'o')
+hold on
+plot(price_flat(:, 1), price_fit, '-')
+pause
+
+
+% (fit - y) ./ y;
+
 % Estimate the price of a 1650 sq-ft, 3 br house
 % ====================== YOUR CODE HERE ======================
 % Recall that the first column of X is all-ones. Thus, it does
 % not need to be normalized.
 price = 0; % You should change this
+br_select_norm = (br_select - mu(2)) / sigma(2);
+surf_norm = (surface - mu(1)) / sigma(1);
+x_1650 = [1 br_select_norm surf_norm]
+
+price = x_1650 * theta;
 
 
 % ============================================================

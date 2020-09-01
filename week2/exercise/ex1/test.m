@@ -1,3 +1,11 @@
+v = [0; 1; 2; 3];
+
+v = [v; 4]
+b = []
+for i = 1:size(v, 2)
+    k = i
+endfor
+
 
 fprintf('Plotting Data ...\n')
 data = load('ex1data1.txt');
@@ -20,19 +28,19 @@ theta = [-1; 2];
 theta(2);
 
 X_norm = X;
-X_norm = X(:, [2, :])
-size(X_norm, 2)
+X_norm = X(:, [2, :]);
+size(X_norm, 2);
 
 mu = zeros(1, size(X_norm, 2));
 sigma = zeros(1, size(X_norm, 2));
 
-mu = mean(X_norm)
-sigma = std(X_norm)
+mu = mean(X_norm);
+sigma = std(X_norm);
 
 
-X_norm = (X_norm - mu) ./ sigma
+X_norm = (X_norm - mu) ./ sigma;
 
-X_norm = [X(:, 1), X_norm]
+X_norm = [X(:, 1), X_norm];
 
 J = sum((X * theta - y).^2);
 J = J / (2*m);
