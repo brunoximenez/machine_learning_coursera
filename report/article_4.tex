@@ -1,0 +1,318 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (1/8/17)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+a4paper, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+headinclude,footinclude, % Extra spacing for the header and footer
+BCOR5mm, % Binding correction
+]{scrartcl}
+
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont\spacedallcaps{Notes on Machine Learning}} % The article title
+
+%\subtitle{Subtitle} % Uncomment to display a subtitle
+
+\author{\spacedlowsmallcaps{Bruno Ximenez} }% The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+\listoffigures % Print the list of figures
+
+\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+
+% \lipsum[1] % Dummy text
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+% \let\thefootnote\relax\footnotetext{* \textit{Department of Biology, University of Examples, London, United Kingdom}}
+
+% \let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Week 1 -- Introduction}
+
+% A statement requiring citation \cite{Figueredo:2009dg}.
+
+% \lipsum[1-3] % Dummy text
+
+% Some mathematics in the text: $\cos\pi=-1$ and $\alpha$.
+ 
+%----------------------------------------------------------------------------------------
+%	Weeks
+%----------------------------------------------------------------------------------------
+
+
+\section{Week 2 -- Linear regression}
+
+The linear regreession consists in finding best fit parameters of a linear function that will be used as a model 
+or hypothesis. The mathematical expression is:
+
+\begin{equation} \label{h}
+    h_{\theta}(x) = \theta_{0} + \theta_{1} x
+\end{equation}
+This is the case of a one dimensional model i.e. y is a function of one variable. In machine learning language, the variables will be called features.
+It is very convinient, specially from the point of view of code implementation, to write this function in vectorial form. 
+The parameters $\theta_{j}$ are written as a single column vector $\theta = (\theta_{0}, \theta_{1})$. The feature is written in the vector form by using the trick
+of adding a dimension with a unit value representing $x^{0}$: $X = (x_{0}=1, x_{1})$. The hypothesis \ref{h} is then simplified:
+
+\begin{equation}
+    h_{\theta}(x) = X \cdot \theta
+\end{equation}
+Recalling that dim($X$) =  $m \times (n+1)$ matrix (assemble of column vectors) and $\theta$ is a column vector, dim($\theta$) = $(n+1) \times 1$,
+where $m$ is the number of training examples and $n$ is the number of variables or features.
+The task of the linear regression method is to, given a training data set $(x,y)$, find the best parameters $\theta$ that will fit the model to the data.
+Based on this, one can use the output of the calculation to predict or to estimate $y$. The search for the optimum parameters can be done by writing the function:
+
+\begin{equation}
+    \begin{split}
+        J(\theta) &= \frac{1}{2 m} \sum _{k=1}^{m} [ h_{\theta}(x^{(k)}) - y^{(k)}]^{2} \\
+                    & = \frac{1}{2 m} (X \cdot \theta - y)^{T} \cdot (X \cdot \theta - y)
+    \end{split}
+\end{equation}
+called the cost function. It is proportional to the square of the difference between the model and the trainning data set. 
+The last step is to find a routine that can minimize the cost function. One way to do this is to use the gradient descendent 
+method by calculating in an iterative manner the parameters using the equation:
+
+\begin{equation} \label{grad_desc}
+    \theta_{i} = \theta_{i} - \alpha \frac{\partial J}{\partial \theta}
+\end{equation}
+where $\alpha$, the learning rate, is a parameter to be adjusted and will control the convergence speed of the algorithm. 
+Values of $\alpha$ that are too large will make the algorithm to overshoot and never reach the minimum
+value while a too small $\alpha$ may slow the code down. An optimum value must be found.
+
+Equation \ref{grad_desc} can be explicitly calculated:
+
+\begin{equation}
+    \begin{split}
+        \theta_{i} & = \theta_{i} - \frac{\alpha}{m} \sum _{k=1}^{m} [ h_{\theta}(x^{(k)}) - y^{(k)}] x_{i}^{(k)} \\
+                    & = \theta_{i} - \frac{\alpha}{m} X^{T} * (X \cdot \theta - y)
+    \end{split}
+\end{equation}
+
+Writting the equations in the vector form allows us to calculate the updated values in a simultaneous way for all parameters,
+which is the desired routine. From the coding point of view, the summation form requires the use of a iterative for loop over the 
+vectors and matrices (and one needs to be carefull with ensuring the simultaneous update of the parameters) while the vector form is a simple single line of code (simultaneous by definition).
+
+For a multi-dimensional problems i.e. with more than one feature, in the vectorial form, the problem is exact the same and no change need 
+to be made in the equations. The expression for the hypothesis is modified as:
+
+\begin{equation}
+    \begin{split}
+        h_{\theta}(x) & = \sum_{i=1}^{n} \theta_{i} x_{i} \\
+                        & = X \cdot \theta
+    \end{split}
+\end{equation}
+with $x_{0} = 1$.
+
+\section{Week 3 -- Logistic regression}
+
+
+
+% \lipsum[5] % Dummy text
+
+% \begin{enumerate}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+% \item First item in a list
+% \item Second item in a list
+% \item Third item in a list
+% \end{enumerate}
+
+%------------------------------------------------
+
+% \subsection{Paragraphs}
+
+% \lipsum[6] % Dummy text
+
+% \paragraph{Paragraph Description} \lipsum[7] % Dummy text
+
+% \paragraph{Different Paragraph Description} \lipsum[8] % Dummy text
+
+%------------------------------------------------
+
+% \subsection{Math}
+
+% \lipsum[4] % Dummy text
+
+% \begin{equation}
+% \cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
+% \label{eq:refname2}
+% \end{equation}
+
+% \lipsum[5] % Dummy text
+
+% \begin{definition}[Gauss] 
+% To a mathematician it is obvious that
+% $\int_{-\infty}^{+\infty}
+% e^{-x^2}\,dx=\sqrt{\pi}$. 
+% \end{definition} 
+
+% \begin{theorem}[Pythagoras]
+% The square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides.
+% \end{theorem}
+
+% \begin{proof} 
+% We have that $\log(1)^2 = 2\log(1)$.
+% But we also have that $\log(-1)^2=\log(1)=0$.
+% Then $2\log(-1)=0$, from which the proof.
+% \end{proof}
+
+% %----------------------------------------------------------------------------------------
+%	RESULTS AND DISCUSSION
+%----------------------------------------------------------------------------------------
+
+% \section{Results and Discussion}
+
+% Reference to Figure~\vref{fig:gallery}. % The \vref command specifies the location of the reference
+
+% \begin{figure}[tb]
+% \centering 
+% \includegraphics[width=0.5\columnwidth]{GalleriaStampe} 
+% \caption[An example of a floating figure]{An example of a floating figure (a reproduction from the \emph{Gallery of prints}, M.~Escher,\index{Escher, M.~C.} from \url{http://www.mcescher.com/}).} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+% \label{fig:gallery} 
+% \end{figure}
+
+% \lipsum[10] % Dummy text
+
+% %------------------------------------------------
+
+% \subsection{Subsection}
+
+% \lipsum[11] % Dummy text
+
+% \subsubsection{Subsubsection}
+
+% \lipsum[12] % Dummy text
+
+% \begin{description}
+% \item[Word] Definition
+% \item[Concept] Explanation
+% \item[Idea] Text
+% \end{description}
+
+% \lipsum[12] % Dummy text
+
+% \begin{itemize}[noitemsep] % [noitemsep] removes whitespace between the items for a compact look
+% \item First item in a list
+% \item Second item in a list
+% \item Third item in a list
+% \end{itemize}
+
+% \subsubsection{Table}
+
+% \lipsum[13] % Dummy text
+
+% \begin{table}[hbt]
+% \caption{Table of Grades}
+% \centering
+% \begin{tabular}{llr}
+% \toprule
+% \multicolumn{2}{c}{Name} \\
+% \cmidrule(r){1-2}
+% First name & Last Name & Grade \\
+% \midrule
+% John & Doe & $7.5$ \\
+% Richard & Miles & $2$ \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:label}
+% \end{table}
+
+% Reference to Table~\vref{tab:label}. % The \vref command specifies the location of the reference
+
+%------------------------------------------------
+
+% \subsection{Figure Composed of Subfigures}
+
+% Reference the figure composed of multiple subfigures as Figure~\vref{fig:esempio}. Reference one of the subfigures as Figure~\vref{fig:ipsum}. % The \vref command specifies the location of the reference
+
+% \lipsum[15-18] % Dummy text
+
+% \begin{figure}[tb]
+% \centering
+% \subfloat[A city market.]{\includegraphics[width=.45\columnwidth]{Lorem}} \quad
+% \subfloat[Forest landscape.]{\includegraphics[width=.45\columnwidth]{Ipsum}\label{fig:ipsum}} \\
+% \subfloat[Mountain landscape.]{\includegraphics[width=.45\columnwidth]{Dolor}} \quad
+% \subfloat[A tile decoration.]{\includegraphics[width=.45\columnwidth]{Sit}}
+% \caption[A number of pictures.]{A number of pictures with no common theme.} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
+% \label{fig:esempio}
+% \end{figure}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample.bib} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
