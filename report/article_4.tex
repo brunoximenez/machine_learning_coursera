@@ -145,14 +145,15 @@ method by calculating in an iterative manner the parameters using the equation:
 \end{equation}
 where $\alpha$, the learning rate, is a parameter to be adjusted and will control the convergence speed of the algorithm. 
 Values of $\alpha$ that are too large will make the algorithm to overshoot and never reach the minimum
-value while a too small $\alpha$ may slow the code down. An optimum value must be found.
+value while a too small $\alpha$ may slow the code down. An optimum value must be found. It is worth mentioning that the operator "="
+is being used here as an assignment operator and not truth assertion.
 
 Equation \ref{grad_desc} can be explicitly calculated:
 
 \begin{equation}
     \begin{split}
         \theta_{i} & = \theta_{i} - \frac{\alpha}{m} \sum _{k=1}^{m} [ h_{\theta}(x^{(k)}) - y^{(k)}] x_{i}^{(k)} \\
-                    & = \theta_{i} - \frac{\alpha}{m} X^{T} * (X \cdot \theta - y)
+                   \theta & = \theta - \frac{\alpha}{m} X^{T} \cdot (X \cdot \theta - y)
     \end{split}
 \end{equation}
 
@@ -173,6 +174,37 @@ with $x_{0} = 1$.
 
 \section{Week 3 -- Logistic regression}
 
+We turn our attention now to the classification problem in supervised learning, which consists of classifying 
+the data into a discrete number of labels. The simplest is the binary of binomial one with the data being classified as
+yes or no, 0 or 1, true or false, etc. 
+
+In this case, the linear hypothesis is not suitable anymore and it will be replaced by the sigmoid function defined as:
+
+\begin{equation}
+    g(z) = \frac{1}{1 + e^{-z}}
+\end{equation}
+with,
+\begin{equation}
+    z = X \cdot \theta
+\end{equation}
+
+Some properties of the sigmoid function:
+\begin{equation}
+    g(z) = 
+        \begin{cases}
+            0 &  z \rightarrow -\infty \\
+            0.5 & z = 0 \\
+            1 & z \rightarrow +\infty
+        \end{cases}
+\end{equation}
+
+The interpretation is given in terms of probability: \textit{the probability of a given input produce an output = 1 is precisely}:
+
+\begin{equation}
+    P(y=1|x;\theta) = g(z)
+\end{equation}
+Thus , for $z \geqslant 0$ the probability of $y=1$ is equal or bigger than 0.5. The prediction or guess is a decision wether to 
+label the data as 1 or 0. An educated guess is to set the boundary between the two discrete labels at $z=0$. That is called \textit{decision boundary}.
 
 
 % \lipsum[5] % Dummy text

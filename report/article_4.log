@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.29)  2 SEP 2020 16:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.29)  2 SEP 2020 18:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1211,22 +1211,22 @@ LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
  [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (/home/bximenez/git_repo/machine_learning_coursera/report/article_4.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
 Package rerunfilecheck Info: File `article_4.out' has not changed.
 (rerunfilecheck)             Checksum: 1C14A704121FA7B0C2F2DDF9696CA956;195.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 318.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 15218 strings out of 492982
- 272294 string characters out of 6134895
+ 15229 strings out of 492982
+ 272429 string characters out of 6134895
  593113 words of memory out of 5000000
- 18471 multiletter control sequences out of 15000+600000
- 84770 words of font info for 121 fonts, out of 8000000 for 9000
+ 18474 multiletter control sequences out of 15000+600000
+ 87495 words of font info for 125 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  64i,23n,88p,8820b,554s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
@@ -1237,14 +1237,18 @@ ic/amsfonts/euler/euex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/euler/eurm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/e
-uler/eurm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb>
+uler/eurm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler
+/eusm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/palatino/uplri8a.pfb>
 Output written on /home/bximenez/git_repo/machine_learning_coursera/report/arti
-cle_4.pdf (3 pages, 73474 bytes).
+cle_4.pdf (3 pages, 100473 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 26649 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 109 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
+ 27161 words of extra memory for PDF output out of 29859 (max. 10000000)
 
