@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.12)  5 SEP 2020 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2020.1.12)  5 SEP 2020 13:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1131,32 +1131,39 @@ Package tocbasic Info: character protrusion at lot deactivated on input line 73
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/iwona/m/sc/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
- [2] (./report_ML.bbl
+ (./week_2.tex [2])
+(./week_3.tex
+LaTeX Font Info:    Font shape `T1/iwona/bx/sc' in size <10> not available
+(Font)              Font shape `T1/iwona/b/sc' tried instead on input line 36.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/iwona/b/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+ [3]) (./report_ML.bbl
 
 LaTeX Warning: Empty `thebibliography' environment or \BreakBibliography
                before end of `thebibliography' environment on input line 3.
 
-) [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
+) [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
  (./report_ML.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
 Package rerunfilecheck Info: File `report_ML.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
  ) 
 Here is how much of TeX's memory you used:
- 26763 strings out of 492163
- 509894 string characters out of 6125291
- 867896 words of memory out of 5000000
- 30730 multiletter control sequences out of 15000+600000
- 616193 words of font info for 135 fonts, out of 8000000 for 9000
+ 26864 strings out of 492163
+ 511742 string characters out of 6125291
+ 866896 words of memory out of 5000000
+ 30804 multiletter control sequences out of 15000+600000
+ 626912 words of font info for 152 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 66i,23n,89p,10104b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/t
-exlive/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/local/texliv
-e/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}</usr/local/texlive/2019/t
+ 69i,23n,92p,10104b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona.enc}{/usr/
+local/texlive/2019/texmf-dist/fonts/enc/dvips/iwona/ec-iwona-sc.enc}{/usr/local
+/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/te
 xmf-dist/fonts/type1/public/amsfonts/euler/euex10.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/201
@@ -1166,14 +1173,15 @@ texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/201
 /2019/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texli
 ve/2019/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb></usr/local/texlive/2019/
 texmf-dist/fonts/type1/public/fpl/fplrij8a.pfb></usr/local/texlive/2019/texmf-d
-ist/fonts/type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2019/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dis
-t/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts
-/type1/urw/palatino/uplri8a.pfb>
-Output written on report_ML.pdf (3 pages, 108152 bytes).
+ist/fonts/type1/nowacki/iwona/iwonab.pfb></usr/local/texlive/2019/texmf-dist/fo
+nts/type1/nowacki/iwona/iwonar.pfb></usr/local/texlive/2019/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/font
+s/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1
+/urw/palatino/uplri8a.pfb>
+Output written on report_ML.pdf (4 pages, 133211 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 27161 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 35873 words of extra memory for PDF output out of 42996 (max. 10000000)
 

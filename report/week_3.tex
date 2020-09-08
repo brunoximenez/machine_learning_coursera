@@ -1,0 +1,79 @@
+\section{Week 3 -- Logistic regression}
+
+We turn our attention now to the classification problem in supervised learning, which consists of classifying 
+the data into a discrete number of labels. The simplest is the binary of binomial one with the data being classified as
+yes or no, 0 or 1, true or false, etc. 
+
+In this case, the linear hypothesis is not suitable anymore and it will be replaced by the sigmoid function defined as:
+
+\begin{equation}
+    g(z) = \frac{1}{1 + e^{-z}}
+\end{equation}
+with,
+\begin{equation}
+    z = X \cdot \theta
+\end{equation}
+
+Some properties of the sigmoid function:
+\begin{equation}
+    g(z) = 
+        \begin{cases}
+            0 &  z \rightarrow -\infty \\
+            0.5 & z = 0 \\
+            1 & z \rightarrow +\infty
+        \end{cases}
+\end{equation}
+
+The interpretation is given in terms of probability: \textit{the probability of a given input produce an output = 1 is precisely}:
+
+\begin{equation}
+    P(y=1|x;\theta) = g(z)
+\end{equation}
+Thus , for $z \geqslant 0$ the probability of $y=1$ is equal or bigger than 0.5. The prediction or guess is a decision wether to 
+label the data as 1 or 0. An educated guess is to set the boundary between the two discrete labels at $z=0$. That is called \textit{decision boundary}.
+
+
+\subsection{Cost function}
+
+Here I will describe how to write the cost function for the logistic regression.
+The cost function will be modified according to the equations below. The specific choice of this model comes from statistical theory of maximum likelyhood (look for better reasoning here).
+
+\begin{equation} \label{}
+    J(\theta) = \frac{1}{m} \sum_{i=1}^{m} Cost(g(z^{(i)}), y^{(i)})
+\end{equation}
+
+With,
+
+\begin{equation}
+    Cost[g(z^{(i)}), y^{(i)}] =
+        \begin{cases}
+            - log[g(z^{(i)})] & \text{if  } y = 1 \\
+            - log[1- g(z^{(i)})] & \text{if  }  y = 0
+        \end{cases}
+\end{equation}
+
+In equation form:
+
+\begin{equation}
+    Cost[g(z^{(i)}), y^{(i)}] = - y log[g(z^{(i)})] - (1 - y)log[1- g(z^{(i)})]
+\end{equation}
+
+And,
+
+\begin{equation}
+    J(\theta) = - \frac{1}{m} \sum_{i=1}^{m} y^{(i)} log[g(z^{(i)})] + (1 - y^{(i)})log[1- g(z^{(i)})]
+\end{equation}
+
+To minimize this function, the same strategy is used:
+
+\begin{equation}
+    \theta_{i} = \theta_{i} - \alpha \frac{\partial }{\partial \theta} J(\theta)
+\end{equation}
+
+Or, in a vectorized implementation:
+
+\begin{equation}
+    \theta = \theta - \frac{\alpha}{m} X^{T} (g(X\cdot\theta) - Y)
+\end{equation}
+
+
