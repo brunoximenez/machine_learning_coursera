@@ -26,22 +26,22 @@ J = - y' * log(sig) - (1 - y)' * log(1 - sig);
 J = J / m;
 
 %  regularization
-tmp = ones(size(theta), 1);
-tmp(1) = 0;
-tmp_2 = theta;
-tmp_2 = tmp .* tmp_2;
-J = J + lambda * (tmp_2' * tmp_2) / (2*m);
+% tmp = ones(size(theta), 1);
+% tmp(1) = 0;
+% tmp_2 = theta;
+% tmp_2 = tmp .* tmp_2;
+% J = J + lambda * (tmp_2' * tmp_2) / (2*m);
 
-% tpm = theta
-% tmp(1) = 0
-% J = J + lambda * (tmp' * tmp) / (2*m);
+tmp = theta;
+tmp(1) = 0;
+J = J + lambda * (tmp' * tmp) / (2*m);
 
 % Grad
 grad = (sig - y)' * X / m;
-xii = tmp .* theta * lambda / m;
+% xii = tmp .* theta * lambda / m;
+grad = grad + lambda * tmp' / m;
 
-
-grad = grad + xii';
+% grad = grad + xii';
 
 % =============================================================
 
